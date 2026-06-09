@@ -36,7 +36,7 @@ import {
 import { toast } from "sonner";
 import { TrialPrepChecklist } from "@/components/TrialPrepChecklist";
 import { TrialBinder } from "@/components/TrialBinder";
-import { VoiceCourtroom } from "@/components/courtroom/VoiceCourtroom";
+import { VoiceCourtroomV2 } from "@/components/courtroom/VoiceCourtroomV2";
 import { cn } from "@/lib/utils";
 
 const container = {
