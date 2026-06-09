@@ -42,3 +42,6 @@ verify_jwt = false
 
 [functions.conflict-check]
 verify_jwt = false
+[functions.deepgram-token]
+verify_jwt = true
+
