@@ -42,6 +42,9 @@ jobs:
           supabase functions deploy transcribe-media
           supabase functions deploy create-video-room
           supabase functions deploy join-video-room
+          supabase functions deploy deepgram-token
+          supabase functions deploy trial-simulation
+          supabase functions deploy trial-assistant
         env:
           SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
 
