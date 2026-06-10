@@ -1,14 +1,13 @@
 import { useState, useRef, useEffect, useCallback } from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Gavel, Square, Mic, MicOff, Volume2, VolumeX,
-  Loader2, Lightbulb, Scale, Timer, RotateCcw,
-  Download, Radio, Hand, ChevronRight, Zap,
-  Brain, MessageSquare, AlertCircle,
+  Loader2, Lightbulb, Timer,
+  Download, Radio, Hand, ChevronRight,
+  Brain
 } from "lucide-react";
 import { useDeepgramCourtroom } from "@/hooks/useDeepgramCourtroom";
 import { supabase } from "@/integrations/supabase/client";
@@ -249,7 +248,6 @@ export function VoiceCourtroomV2({ caseId, caseName, mode, modeName, onEnd }: Vo
     leadingQuestionsUsed: 0, openQuestionsUsed: 0,
     avgResponseTimeMs: null, credibilityScore: null,
   });
-  const [pendingCoach, setPendingCoach] = useState<string | null>(null);
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const sessionCreatedRef = useRef(false);
@@ -734,3 +732,4 @@ export function VoiceCourtroomV2({ caseId, caseName, mode, modeName, onEnd }: Vo
     </div>
   );
 }
+
