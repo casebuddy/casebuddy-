@@ -290,21 +290,6 @@ export function VoiceCourtroomV2({ caseId, caseName, mode, modeName, onEnd }: Vo
       .catch(console.error);
   }, [caseId, mode, modeName]);
 
-  // ── Auto-arm mic (hands-free)
-  useEffect(() => {
-    if (!handsFreeModeOn) return;
-    if (voice.isListening || voice.isSpeaking || simulationMutation.isPending) return;
-
-    const t = setTimeout(() => {
-      if (!voice.isListening && !voice.isSpeaking) {
-        voice.startListening();
-      }
-    }, 400);
-    return () => clearTimeout(t);
-  }, [
-    handsFreeModeOn, voice.isListening, voice.isSpeaking,
-    voice.startListening, simulationMutation.isPending,
-  ]);
 
   // ── AI simulation
   const simulationMutation = useMutation({
@@ -396,6 +381,22 @@ export function VoiceCourtroomV2({ caseId, caseName, mode, modeName, onEnd }: Vo
       toast.error(msg, { duration: 5000 });
     },
   });
+
+  // ── Auto-arm mic (hands-free)
+  useEffect(() => {
+    if (!handsFreeModeOn) return;
+    if (voice.isListening || voice.isSpeaking || simulationMutation.isPending) return;
+
+    const t = setTimeout(() => {
+      if (!voice.isListening && !voice.isSpeaking) {
+        voice.startListening();
+      }
+    }, 400);
+    return () => clearTimeout(t);
+  }, [
+    handsFreeModeOn, voice.isListening, voice.isSpeaking,
+    voice.startListening, simulationMutation.isPending,
+  ]);
 
   const handleSend = useCallback((text?: string) => {
     const msg = (text || currentInput).trim();
